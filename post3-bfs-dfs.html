@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Algoritmos BFS y DFS - Estructura de Datos</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <h1>Estructura de Datos - Grafos</h1>
+        <p>Estructuras de Datos II · Universidad INCCA de Colombia</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="post1-introduccion-grafos.html" class="active">Introducción a los grafos</a></li>
+            <li><a href="post2-representacion-grafos.html" class="active">Representación de grafos</a></li>
+            <li><a href="post3-bfs-dfs.html" class="active">Algoritmos BFS y DFS</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+
+        <article class="card">
+            <h2>Algoritmos de recorrido: BFS y DFS</h2>
+            <p>
+                Una vez que tenemos un grafo representado en memoria, el siguiente paso es
+                recorrerlo. Dos de los algoritmos más importantes para hacerlo son
+                <span class="sigla" title="Breadth-First Search (Búsqueda en Anchura)">BFS</span>
+                y
+                <span class="sigla" title="Depth-First Search (Búsqueda en Profundidad)">DFS</span>.
+            </p>
+            <p>
+                Ambos reciben un grafo y un vértice de inicio, y producen un orden de visita
+                de los vértices alcanzables desde ese punto.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>BFS: búsqueda en anchura</h3>
+            <p>
+                El algoritmo 
+                <span class="sigla" title="Breadth-First Search (Búsqueda en Anchura)">BFS</span>
+                recorre el grafo por “capas” o niveles. Primero visita el vértice inicial,
+                luego todos sus vecinos directos, después los vecinos de esos vecinos, y así
+                sucesivamente.
+            </p>
+            <p>
+                Para implementar BFS se utiliza una <strong>cola</strong> (estructura FIFO),
+                que garantiza que los vértices se procesen en el orden en que fueron
+                descubiertos.
+            </p>
+
+            <h4>Pseudocódigo básico de BFS</h4>
+            <pre><code>1. Crear una cola vacía.
+2. Marcar el vértice de inicio como visitado y encolarlo.
+3. Mientras la cola no esté vacía:
+     a) Desencolar un vértice u.
+     b) Para cada vecino v de u:
+           - Si v no ha sido visitado:
+                 · Marcar v como visitado.
+                 · Encolarlo.</code></pre>
+
+            <p>
+                Si el grafo no es ponderado, 
+                <span class="sigla" title="Breadth-First Search (Búsqueda en Anchura)">BFS</span>
+                también permite encontrar la distancia mínima (en número de aristas) desde el
+                nodo inicial hasta cualquier otro nodo alcanzable.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>DFS: búsqueda en profundidad</h3>
+            <p>
+                El algoritmo 
+                <span class="sigla" title="Depth-First Search (Búsqueda en Profundidad)">DFS</span>
+                explora el grafo “a fondo”. Desde el vértice inicial toma uno de sus vecinos
+                y sigue avanzando por una rama hasta donde sea posible; solo entonces
+                retrocede y busca caminos alternativos.
+            </p>
+            <p>
+                DFS puede implementarse de dos formas equivalentes:
+            </p>
+            <ul>
+                <li>De manera <strong>recursiva</strong>, aprovechando la pila de llamadas.</li>
+                <li>De manera <strong>iterativa</strong>, utilizando una pila explícita.</li>
+            </ul>
+
+            <h4>Pseudocódigo básico de DFS (versión recursiva)</h4>
+            <pre><code>DFS(u):
+    Marcar u como visitado.
+    Para cada vecino v de u:
+        Si v no ha sido visitado:
+            Llamar DFS(v).</code></pre>
+
+            <p>
+                DFS es muy útil para:
+            </p>
+            <ul>
+                <li>Detectar ciclos en un grafo.</li>
+                <li>Encontrar componentes conexas.</li>
+                <li>Generar ordenamientos topológicos en grafos dirigidos acíclicos.</li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <h3>Comparación entre BFS y DFS</h3>
+            <ul>
+                <li>
+                    <strong>Orden de visita</strong>: 
+                    <span class="sigla" title="Breadth-First Search (Búsqueda en Anchura)">BFS</span>
+                    va por niveles, 
+                    <span class="sigla" title="Depth-First Search (Búsqueda en Profundidad)">DFS</span>
+                    se mete por una rama hasta el fondo.
+                </li>
+                <li>
+                    <strong>Estructura auxiliar</strong>:
+                    BFS usa cola; DFS usa pila (explícita o implícita por recursión).
+                </li>
+                <li>
+                    <strong>Aplicaciones típicas</strong>:
+                    BFS para distancias mínimas en grafos no ponderados; DFS para análisis
+                    estructural del grafo (ciclos, componentes, ordenamientos).
+                </li>
+            </ul>
+            <p>
+                En cualquier caso, la eficiencia de ambos algoritmos depende de una
+                representación adecuada del grafo, como la lista de adyacencia vista en el
+                post anterior.
+            </p>
+        </article>
+
+    </main>
+
+</body>
+
+<footer class="site-footer">
+    <div class="footer-left">
+        <strong>Carlos Andrés Arias Henao | 92389</strong><br>
+        Programa: Ingeniería de Sistemas<br>
+        Asignatura: Estructura de Datos II
+    </div>
+
+    <div class="footer-right">
+        Universidad INCCA de Colombia<br>
+        Docente: Ing. Josthin Duván Sarmiento Samper<br>
+        2025
+    </div>
+</footer>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Representación de Grafos - Estructura de Datos</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <h1>Estructura de Datos - Grafos</h1>
+        <p>Estructuras de Datos II · Universidad INCCA de Colombia</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="post1-introduccion-grafos.html" class="active">Introducción a los grafos</a></li>
+            <li><a href="post2-representacion-grafos.html" class="active">Representación de grafos</a></li>
+            <li><a href="post3-bfs-dfs.html" class="active">Algoritmos BFS y DFS</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+
+        <article class="card">
+            <h2>Representación de grafos en memoria</h2>
+            <p>
+                Para trabajar con grafos en un programa necesitamos una forma concreta de
+                guardarlos en memoria. Las dos representaciones más utilizadas son:
+            </p>
+            <ul>
+                <li><strong>Matriz de adyacencia</strong></li>
+                <li><strong>Lista de adyacencia</strong></li>
+            </ul>
+            <p>
+                Ambas describen el mismo grafo, pero con estructuras y costos muy diferentes
+                en tiempo y espacio.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>Matriz de adyacencia</h3>
+            <p>
+                Una matriz de adyacencia es una tabla cuadrada de tamaño <em>n × n</em>,
+                donde <em>n</em> es el número de vértices. Cada casilla
+                <strong>M[i][j]</strong> indica si existe una arista que conecta el vértice
+                <em>i</em> con el vértice <em>j</em>.
+            </p>
+            <p>
+                En un grafo no ponderado, normalmente se usa:
+            </p>
+            <ul>
+                <li><strong>1</strong> para indicar que la arista existe.</li>
+                <li><strong>0</strong> para indicar que no hay conexión.</li>
+            </ul>
+
+            <figure style="margin-top: 0.75rem; text-align: center;">
+                <img src="img/matriz-adyacencia.png" alt="Ejemplo de matriz de adyacencia" style="max-width: 100%; height: auto;">
+                <figcaption style="font-size: 0.85rem; margin-top: 0.25rem;">
+                    Figura 2. Matriz de adyacencia del grafo simple mostrado en la introducción.
+                </figcaption>
+            </figure>
+
+            <p><strong>Ventajas:</strong></p>
+            <ul>
+                <li>Búsqueda muy rápida para saber si existe la arista (i, j).</li>
+                <li>Estructura simple y fácil de implementar.</li>
+            </ul>
+
+            <p><strong>Desventajas:</strong></p>
+            <ul>
+                <li>Siempre ocupa <em>n²</em> posiciones, haya pocas o muchas aristas.</li>
+                <li>No es eficiente cuando el grafo es grande y casi no tiene conexiones.</li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <h3>Lista de adyacencia</h3>
+            <p>
+                En la lista de adyacencia, cada vértice del grafo tiene asociada una colección
+                (lista, vector, etc.) con todos los vértices a los que está directamente
+                conectado.
+            </p>
+
+            <figure style="margin-top: 0.75rem; text-align: center;">
+                <img src="img/lista-adyacencia.png" alt="Ejemplo de lista de adyacencia" style="max-width: 100%; height: auto;">
+                <figcaption style="font-size: 0.85rem; margin-top: 0.25rem;">
+                    Figura 3. Lista de adyacencia correspondiente al mismo grafo de ejemplo.
+                </figcaption>
+            </figure>
+
+            <p><strong>Ventajas:</strong></p>
+            <ul>
+                <li>Uso de memoria proporcional al número de aristas reales.</li>
+                <li>
+                    Recorrer los vecinos de un vértice es directo, ideal para algoritmos de
+                    recorrido como 
+                    <span class="sigla" title="Breadth-First Search (Búsqueda en Anchura)">BFS</span>
+                    y 
+                    <span class="sigla" title="Depth-First Search (Búsqueda en Profundidad)">DFS</span>.
+                </li>
+            </ul>
+
+            <p><strong>Desventajas:</strong></p>
+            <ul>
+                <li>
+                    Consultar si existe una arista concreta (i, j) puede requerir buscar
+                    dentro de la lista de vecinos.
+                </li>
+                <li>
+                    La implementación suele requerir estructuras dinámicas (listas enlazadas,
+                    vectores de vectores, etc.).
+                </li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <h3>¿Cuál representación elegir?</h3>
+            <p>
+                No hay una única respuesta correcta: depende del problema que estés resolviendo.
+            </p>
+            <ul>
+                <li>
+                    Si el grafo es denso (muchas aristas) y usas muchas consultas directas
+                    “¿existe la arista (i, j)?”, la <strong>matriz de adyacencia</strong> es
+                    una buena opción.
+                </li>
+                <li>
+                    Si el grafo es grande y disperso, y vas a ejecutar recorridos como
+                    <span class="sigla" title="Breadth-First Search (Búsqueda en Anchura)">BFS</span>
+                    o 
+                    <span class="sigla" title="Depth-First Search (Búsqueda en Profundidad)">DFS</span>,
+                    la <strong>lista de adyacencia</strong> suele ser más eficiente.
+                </li>
+            </ul>
+        </article>
+
+    </main>
+
+</body>
+
+<footer class="site-footer">
+    <div class="footer-left">
+        <strong>Carlos Andrés Arias Henao | 92389</strong><br>
+        Programa: Ingeniería de Sistemas<br>
+        Asignatura: Estructura de Datos II
+    </div>
+
+    <div class="footer-right">
+        Universidad INCCA de Colombia<br>
+        Docente: Ing. Josthin Duván Sarmiento Samper<br>
+        2025
+    </div>
+</footer>
+
+</html>

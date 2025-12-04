@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Introducción a los Grafos - Estructura de Datos</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <h1>Estructura de Datos - Grafos</h1>
+        <p>Estructuras de Datos II · Universidad INCCA de Colombia</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="post1-introduccion-grafos.html" class="active">Introducción a los grafos</a></li>
+            <li><a href="post2-representacion-grafos.html" class="active">Representación de grafos</a></li>
+            <li><a href="post3-bfs-dfs.html" class="active">Algoritmos BFS y DFS</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+
+        <article class="card">
+            <h2>Introducción a los grafos</h2>
+            <p>
+                En estructuras de datos, un <strong>grafo</strong> es un modelo muy flexible
+                que nos permite representar relaciones entre objetos. De forma formal, un grafo
+                <em>G</em> se define como un par:
+            </p>
+            <p style="margin-left: 1.5rem;">
+                <strong>G = (V, E)</strong>
+            </p>
+            <ul>
+                <li><strong>V</strong>: conjunto de vértices o nodos.</li>
+                <li><strong>E</strong>: conjunto de aristas o arcos que conectan pares de vértices.</li>
+            </ul>
+            <p>
+                Cada vértice puede representar una ciudad, una persona, un servidor, un proceso,
+                etc. Cada arista representa la relación entre ellos: una carretera, una amistad,
+                un enlace de red, una dependencia, entre otros.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>Ejemplo visual de un grafo</h3>
+            <p>
+                En la siguiente figura se muestra un grafo simple con cinco vértices conectados
+                mediante distintas aristas:
+            </p>
+
+            <figure style="margin-top: 0.75rem; text-align: center;">
+                <img src="img/grafo-simple.png" alt="Ejemplo de grafo simple" style="max-width: 100%; height: auto;">
+                <figcaption style="font-size: 0.85rem; margin-top: 0.25rem;">
+                    Figura 1. Grafo simple con cinco vértices y varias conexiones.
+                </figcaption>
+            </figure>
+
+            <p>
+                A partir de una representación como esta, podremos construir su matriz de
+                adyacencia y su lista de adyacencia en los siguientes posts.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>Grafos dirigidos y no dirigidos</h3>
+            <p>
+                Dependiendo de la naturaleza de la relación, un grafo puede ser:
+            </p>
+            <ul>
+                <li>
+                    <strong>No dirigido</strong>: las aristas no tienen dirección. La relación
+                    entre dos vértices es bidireccional (por ejemplo, una carretera de doble vía).
+                </li>
+                <li>
+                    <strong>Dirigido</strong> (dígrafo): las aristas tienen una dirección,
+                    representada con flechas. La relación va de un vértice origen a un vértice
+                    destino (por ejemplo, el “seguir” en una red social).
+                </li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <h3>Grafos ponderados y no ponderados</h3>
+            <p>
+                Otra clasificación importante es según la existencia de pesos en las aristas:
+            </p>
+            <ul>
+                <li>
+                    <strong>Grafo no ponderado</strong>: solo interesa la existencia o no de
+                    la conexión.
+                </li>
+                <li>
+                    <strong>Grafo ponderado</strong>: cada arista tiene un peso (distancia,
+                    tiempo, costo, capacidad, etc.).
+                </li>
+            </ul>
+            <p>
+                En cursos más avanzados verás algoritmos como Dijkstra o Floyd–Warshall, que
+                trabajan directamente con grafos ponderados para hallar rutas de costo mínimo.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>¿Cómo se conectan los grafos con los algoritmos?</h3>
+            <p>
+                Los grafos por sí solos son solo estructura. Para sacarles provecho necesitamos
+                algoritmos que los recorran y analicen. Algunos de los más importantes son:
+            </p>
+            <ul>
+                <li>
+                    <span class="sigla" title="Breadth-First Search (Búsqueda en Anchura)">BFS</span>:
+                    recorre el grafo por niveles.
+                </li>
+                <li>
+                    <span class="sigla" title="Depth-First Search (Búsqueda en Profundidad)">DFS</span>:
+                    explora una rama del grafo hasta el fondo antes de retroceder.
+                </li>
+            </ul>
+            <p>
+                En los próximos artículos veremos cómo representar el grafo en memoria y cómo
+                aplicar estos recorridos de forma sistemática.
+            </p>
+        </article>
+
+    </main>
+
+</body>
+
+<footer class="site-footer">
+    <div class="footer-left">
+        <strong>Carlos Andrés Arias Henao | 92389</strong><br>
+        Programa: Ingeniería de Sistemas<br>
+        Asignatura: Estructura de Datos II
+    </div>
+
+    <div class="footer-right">
+        Universidad INCCA de Colombia<br>
+        Docente: Ing. Josthin Duván Sarmiento Samper<br>
+        2025
+    </div>
+</footer>
+
+</html>
